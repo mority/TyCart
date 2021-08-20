@@ -37,4 +37,45 @@ void tycart_register_FTI_t_stub_(const void* pointer);                          
 }
 #endif  // __cplusplus
 
+/*
+ * Define the used backend library based on the include in user code.
+ */
+#ifdef __VELOC_H
+#define VELOC_PROTECT(id, pointer, count, type) VELOC_Mem_protect(id, pointer, count, sizeof(type));
+
+#define FTI_PROTECT(id, pointer, count, type)
+#define MCPR_PROTECT(id, pointer, count, type)
+#endif
+
+#ifdef __FTI_H__
+#define FTI_PROTECT(id, pointer, count, type) // TODO add FTI support
+
+#define VELOC_PROTECT(id, pointer, count, type)
+#define MCPR_PROTECT(id, pointer, count, type)
+#endif
+
+#ifdef MINI_CPR_MINI_CPR_H
+#define MCPR_PROTECT(id, pointer, count, type) mini_cpr_register(id, pointer, count, sizeof(type));
+
+#define VELOC_PROTECT(id, pointer, count, type)
+#define FTI_PROTECT(id, pointer, count, type)
+#endif
+
+// Taken from
+// https://stackoverflow.com/questions/1597007/creating-c-macro-with-and-line-token-concatenation-with-positioning-macr
+#define TOKENPASTE(x, y) x##y
+#define PASTELINE(x, y) TOKENPASTE(x, y)
+
+// clang-format off
+//
+
+// mark a pointer for checkpointing
+#define TY_protect(id, pointer, count, type)                            \
+{                                                                         \
+type* PASTELINE(__stub_ptr_, __LINE__) = NULL; tycart_assert_stub_((void*)pointer, PASTELINE(__stub_ptr_, __LINE__), count, id); \
+VELOC_PROTECT(id, pointer, count, type)                                 \
+FTI_PROTECT(id, pointer, count, type)                                   \
+MCPR_PROTECT(id, pointer, count, type)                                  \
+}
+
 #endif  // TYCART_TYCARTASSERT_H
