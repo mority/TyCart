@@ -7,8 +7,8 @@ from shutil import copyfile
 import time
 import random
 
-uuts = ["veloc/gol/", "fti/gol/", "mini-cpr/gol/"]
-
+# uuts = ["veloc/gol/", "fti/gol/",
+uuts = ["mini-cpr/gol/"]
 
 def main():
 	t_start = time.time()
@@ -24,7 +24,7 @@ def main():
 	for uut in uuts:
 		print("\nBeginning count-mismatch tests of TY_protect macro with " + uut)
 		actual_size = 2500
-		num_count_tests = 100
+		num_count_tests = 10
 		print("Running", num_count_tests, "count-mismatch tests with actual size =", actual_size, ", type =", both_types)
 		for i in range(num_count_tests):
 			false_positive = False
