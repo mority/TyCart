@@ -80,3 +80,5 @@ if(TYCART_TEST_CONFIGURE_IDE)
   add_test_target_ide(tycart_cc_test_objects "${TYCART_TEST_HEADER}" "${TYCART_CC_TESTS}")
   set_target_properties(tycart_cc_test_objects PROPERTIES LINKER_LANGUAGE C)
 endif()
+
+add_subdirectory(integration)
