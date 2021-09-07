@@ -1,4 +1,4 @@
-add_library(tycart_Runtime SHARED Runtime.cpp TycartAssert.h)
+add_library(tycart_Runtime SHARED Runtime.cpp TyCartAssert.h)
 set_target_properties(
   tycart_Runtime
   PROPERTIES

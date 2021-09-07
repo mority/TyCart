@@ -11,7 +11,7 @@
 //
 
 #include "RuntimeInterface.h"
-#include "TycartAssert.h"
+#include "TyCartAssert.h"
 #include "support/Log.h"
 
 #include <cstdlib>
