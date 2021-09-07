@@ -16,6 +16,7 @@
 function parse_cmd_line() {
   readonly source_file=$1
   optimize=""
+  user_ldflags=""
 
   shift # skip over $1
   while (("$#")); do
@@ -44,6 +45,15 @@ function parse_cmd_line() {
         shift 2
       else
         echo "Error: Executable file argument for $1 is missing." >&2
+        shift
+      fi
+      ;;
+    --user_ldflags)
+      if [ -n "$2" ]; then
+        user_ldflags="$2"
+        shift 2
+      else
+        echo "Error: Link-time flags argument string for $1 is missing." >&2
         shift
       fi
       ;;
@@ -138,7 +148,7 @@ function compile() {
 }
 
 function main_link() {
-  $compiler ${tycart_san_flags} ${typeart_ldflags} ${tycart_ldflags} "${object_file}" -o "${exe_file}"
+  $compiler ${tycart_san_flags} ${typeart_ldflags} ${tycart_ldflags} ${user_ldflags} "${object_file}" -o "${exe_file}"
 }
 
 function execute() {
