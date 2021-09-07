@@ -3,7 +3,7 @@
 
 // FIXME: make this test work?
 
-#include "../../lib/runtime/TycartAssert.h"
+#include "../../lib/runtime/TyCartAssert.h"
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,6 +1,6 @@
 // RUN: %run-tycart %s | FileCheck %s
 
-#include "../../lib/runtime/TycartAssert.h"
+#include "../../lib/runtime/TyCartAssert.h"
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,7 +1,7 @@
 // RUN: %run-tycart %s
 // XFAIL: *
 
-#include "../../lib/runtime/TycartAssert.h"
+#include "../../lib/runtime/TyCartAssert.h"
 
 #include <stdio.h>
 #include <stdlib.h>
