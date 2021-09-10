@@ -81,4 +81,4 @@ if(TYCART_TEST_CONFIGURE_IDE)
   set_target_properties(tycart_cc_test_objects PROPERTIES LINKER_LANGUAGE C)
 endif()
 
-add_subdirectory(integration)
+add_subdirectory(integration/mini-cpr/lib)
