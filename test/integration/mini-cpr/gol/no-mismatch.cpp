@@ -1,3 +1,5 @@
+// RUN: %run-tycart %s --user_ldflags="-lminicpr" | FileCheck %s
+
 #include "SerialTemplateGoL.h"
 
 //*************************
@@ -67,5 +69,8 @@ int main(int argc, char **argv) {
   // finalize CPR lib
   mini_cpr_fin();
 
+  printf("Test succeeded\n");
   return 0;
 }
+
+// CHECK: Test succeeded
