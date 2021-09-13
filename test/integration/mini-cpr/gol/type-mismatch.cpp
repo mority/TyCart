@@ -1,4 +1,4 @@
-// RUN: %run-tycart %s --user_ldflags "-L/home/ubuntu/TyCart/cmake-build-debug/test/integration/mini-cpr/lib/ -Wl,-rpath,/home/ubuntu/TyCart/cmake-build-debug/test/integration/mini-cpr/lib/ -lminicpr" | FileCheck %s
+// RUN: %run-tycart %s --user_ldflags "-L/home/ubuntu/TyCart/cmake-build-debug/test/integration/mini-cpr/lib/ -lminicpr" | FileCheck %s
 // XFAIL: *
 
 #include "SerialTemplateGoL.h"
