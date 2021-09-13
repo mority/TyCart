@@ -40,4 +40,4 @@ target_link_libraries(test-app-shared
 	)
 
 # copy test assets to build directory
-file(COPY src/test/assets DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY src/test/assets DESTINATION ${CMAKE_BINARY_DIR}/test/integration/mini-cpr/lib)
