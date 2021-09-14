@@ -82,3 +82,4 @@ if(TYCART_TEST_CONFIGURE_IDE)
 endif()
 
 add_subdirectory(integration/mini-cpr/lib)
+add_subdirectory(integration/veloc)
